@@ -21,10 +21,10 @@ class CompressorNode(template.Node):
 
     def render(self, context):
         content = self.nodelist.render(context)
-        if 'MEDIA_URL' in context:
-            media_url = context['MEDIA_URL']
-        else:
-            media_url = settings.MEDIA_URL
+ #       if 'MEDIA_URL' in context:
+ #          media_url = context['MEDIA_URL']
+ #       else:
+        media_url = settings.MEDIA_URL
         if self.kind == 'css':
             compressor = CssCompressor(content, xhtml=self.xhtml, media_url=media_url)
         if self.kind == 'js':
